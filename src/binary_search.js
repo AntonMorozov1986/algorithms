@@ -5,7 +5,7 @@ function generateArray(maxNumber) {
             yield i++;
         }
     }
-    return Array.from(arrayGenerator());
+    return [...arrayGenerator()];
 }
 
 function binarySearch(desiredNumber, numbersArray) {
