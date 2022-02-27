@@ -1,9 +1,11 @@
 function generateArray(maxNumber) {
-    const array = [];
-    for (let i = 0; i <= maxNumber; i++) {
-        array.push(i);
+    function* arrayGenerator() {
+        let i = 0;
+        while (i <= maxNumber) {
+            yield i++;
+        }
     }
-    return array;
+    return Array.from(arrayGenerator());
 }
 
 function binarySearch(desiredNumber, numbersArray) {
@@ -21,7 +23,7 @@ function binarySearch(desiredNumber, numbersArray) {
     }
 }
 
-const testArray = generateArray(1024 * 1024 * 10);
+const testArray = generateArray(100);
 const desiredNumber = Math.floor(Math.random() * testArray.length);
 let searchCallCounter = 0;
 
